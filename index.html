@@ -1,794 +1,443 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Iklil PELTIER</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
-  <style>
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in {
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-    .floating-element {
-      animation: float 6s ease-in-out infinite;
-    }
-  </style>
+  <title>Iklil Peltier — BUT Science des Données</title>
+  <meta name="description" content="Portfolio d'Iklil Peltier, étudiant en BUT Science des Données (parcours EMS), en alternance chez Malakoff Humanis.">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans">
-  <!-- Header -->
-  <header class="fixed w-full bg-gray-900 bg-opacity-90 z-50 shadow-md">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center space-x-4">
-        <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">IP</div>
-        <h1 class="text-xl font-bold hidden md:block">Iklil PELTIER</h1>
-      </div>
-      
-      <nav class="hidden md:block">
-        <ul class="flex space-x-8">
-          <li><a href="#accueil" class="hover:text-purple-400 transition">Accueil</a></li>
-          <li><a href="#apropos" class="hover:text-purple-400 transition">À propos</a></li>
-          <li><a href="#projets" class="hover:text-purple-400 transition">Projets</a></li>
-          <li><a href="#competences" class="hover:text-purple-400 transition">Compétences</a></li>
-          <li><a href="#bilan" class="hover:text-purple-400 transition">Bilan</a></li>
-          <li><a href="#cv" class="hover:text-purple-400 transition">Contact</a></li>
+<body>
+
+  <!-- ===================== Header ===================== -->
+  <header class="header" id="header">
+    <div class="container nav">
+      <a class="brand" href="#accueil" aria-label="Accueil">
+        <span class="brand-mark">IP</span>
+        <span class="brand-name">Iklil Peltier <span class="brand-sub">· BUT SD</span></span>
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#bilan">Bilan</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      
-      <!-- Mobile menu button -->
-      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-        <i data-feather="menu"></i>
-      </button>
-    </div>
-    
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
-      <div class="px-4 py-2 flex flex-col space-y-3">
-        <a href="#accueil" class="block py-2 hover:text-purple-400 transition">Accueil</a>
-        <a href="#apropos" class="block py-2 hover:text-purple-400 transition">À propos</a>
-        <a href="#projets" class="block py-2 hover:text-purple-400 transition">Projets</a>
-        <a href="#competences" class="block py-2 hover:text-purple-400 transition">Compétences</a>
-        <a href="#bilan" class="block py-2 hover:text-purple-400 transition">Bilan</a>
-        <a href="#cv" class="block py-2 hover:text-purple-400 transition">Contact</a>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Changer de thème" title="Changer de thème">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5Z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#apropos">À propos</a>
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#bilan">Bilan</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
 
-  <main class="pt-20">
-    <!-- Hero Section -->
-    <section id="accueil" class="min-h-screen flex items-center relative overflow-hidden">
-      <div class="absolute inset-0 overflow-hidden">
-        <div class="floating-element absolute w-20 h-20 bg-purple-600 rounded-full opacity-20 top-1/4 left-1/4"></div>
-        <div class="floating-element absolute w-16 h-16 bg-blue-500 rounded-full opacity-20 bottom-1/4 right-1/4" style="animation-delay: 2s"></div>
-        <div class="floating-element absolute w-24 h-24 bg-indigo-500 rounded-full opacity-20 top-1/3 right-1/3" style="animation-delay: 4s"></div>
-      </div>
-      
-      <div class="container mx-auto px-4 py-20 flex flex-col items-center text-center">
-        <div class="mb-8">
-          <img src="photo_profil.png" alt="Photo de Iklil PELTIER" class="w-40 h-48 md:w-48 md:h-56 object-cover rounded-xl shadow-2xl border-2 border-purple-500">
-        </div>
-        
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in">Iklil PELTIER</h1>
-        <p class="text-xl md:text-2xl text-purple-300 mb-6 fade-in">Étudiant en BUT Science des Données</p>
-        <p class="text-lg md:text-xl max-w-3xl mb-8 fade-in px-4">
-          Bienvenue sur mon portfolio ! Vous y découvrirez mes projets, compétences et expériences dans le domaine de la science des données...
+  <main>
+    <!-- ===================== Hero ===================== -->
+    <section id="accueil" class="hero">
+      <div class="container">
+        <img class="hero-photo reveal" src="photo_profil.png" alt="Portrait d'Iklil Peltier">
+        <h1 class="reveal">Iklil Peltier</h1>
+        <p class="hero-role reveal">Étudiant en BUT Science des Données — parcours EMS</p>
+        <p class="hero-status reveal">
+          Actuellement en deuxième année, je suis en <strong>alternance chez Malakoff Humanis depuis septembre 2025</strong>.
+          Cette expérience me permet de mettre la donnée au service de cas concrets — analyse, modélisation, restitution —
+          tout en poursuivant ma formation. Mon objectif : continuer en troisième année, toujours en alternance,
+          et approfondir mon expertise statistique.
         </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 fade-in">
-          <a href="#projets" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:opacity-90 transition flex items-center justify-center gap-2">
-            <i data-feather="zap"></i>
-            <span>Découvrir mes projets</span>
+        <div class="hero-cta reveal">
+          <a href="#projets" class="btn btn--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+            Voir mes projets
           </a>
-          <a href="#cv" class="bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-700 transition flex items-center justify-center gap-2">
-            <i data-feather="mail"></i>
-            <span>Me contacter</span>
+          <a href="#contact" class="btn btn--ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Me contacter
           </a>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="apropos" class="py-20 bg-gray-800">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">
-          À propos de moi
-        </h2>
-        
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-8 fade-in">
-            <p class="text-lg leading-relaxed">
-              Je suis <strong class="text-purple-400">Iklil PELTIER</strong>, étudiant en BUT Science des Données à l'IUT de Poitiers. Passionné de technologie, j'ai à cœur de transformer des données brutes en solutions concrètes et utiles. Curieux, créatif et rigoureux, je m'investis pleinement dans les projets que je mène.
-            </p>
+    <!-- ===================== À propos ===================== -->
+    <section id="apropos" class="section section--alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">À propos</span>
+          <h2 class="about-intro">
+            Transformer des <span class="hl">données brutes</span> en décisions utiles.
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <!-- Parcours : frise -->
+          <div class="reveal">
+            <span class="eyebrow">Parcours</span>
+            <ul class="timeline">
+              <li class="t-item">
+                <div class="t-date">2021 – 2024</div>
+                <div class="t-title">Lycée Notre-Dame des Aydes, Blois</div>
+                <div class="t-desc">Bac général, spécialités Mathématiques et NSI.</div>
+              </li>
+              <li class="t-item">
+                <div class="t-date">2024</div>
+                <div class="t-title">Entrée en BUT Science des Données</div>
+                <div class="t-desc">Statistiques, programmation et traitement de données réelles.</div>
+              </li>
+              <li class="t-item is-current">
+                <div class="t-date">Depuis sept. 2025</div>
+                <div class="t-title">2ᵉ année · parcours EMS · alternance</div>
+                <div class="t-desc">En alternance chez Malakoff Humanis.</div>
+              </li>
+              <li class="t-item">
+                <div class="t-date">2026 →</div>
+                <div class="t-title">3ᵉ année en alternance</div>
+                <div class="t-desc">Objectif : poursuivre chez Malakoff Humanis.</div>
+              </li>
+            </ul>
           </div>
-          
-          <hr class="border-gray-700 my-10">
-          
-          <div class="mb-8 fade-in">
-            <h3 class="text-2xl font-bold text-blue-400 mb-4">🎓 Mon parcours</h3>
-            <div class="space-y-4 text-gray-300">
-              <p>J'ai effectué mes années lycée au <strong>lycée Notre-Dame des Aydes à Blois</strong>, avec des spécialités en Mathématiques, Physique-Chimie et NSI en première. En terminale, j'ai poursuivi avec Mathématiques et NSI.</p>
-              <p>Depuis 2024, je suis en <strong>BUT Science des Données</strong>, une formation professionnalisante et exigeante qui me permet de combiner rigueur statistique, programmation et traitement de données réelles.</p>
+
+          <!-- Texte -->
+          <div class="reveal">
+            <div class="about-block">
+              <p>Je suis <strong>Iklil Peltier</strong>, étudiant en BUT Science des Données. Curieux, rigoureux et créatif, j'aime mener un projet de la donnée brute jusqu'à une restitution claire et exploitable.</p>
             </div>
-          </div>
-          
-          <hr class="border-gray-700 my-10">
-          
-          <div class="mb-8 fade-in">
-            <h3 class="text-2xl font-bold text-purple-400 mb-4">🚀 Mes ambitions</h3>
-            <div class="space-y-4 text-gray-300">
-              <p>Je souhaite poursuivre mes études en <strong>parcours Expertise Mathématique et Statistique (EMS)</strong> à partir de la 2<sup>e</sup> année. Mon objectif est de continuer ensuite en <strong>master dans la data</strong>, pour me spécialiser en intelligence artificielle, modélisation prédictive ou analyse décisionnelle.</p>
-              <p>À long terme, je vise un métier alliant analyse, innovation et impact : <strong>Data Scientist, Data Analyst ou Actuaire</strong>.</p>
+
+            <div class="about-block">
+              <h3>Ambitions</h3>
+              <p>Après le BUT, je souhaite poursuivre en master dans la data pour me spécialiser en modélisation prédictive et analyse décisionnelle. À terme, je vise un métier alliant analyse, innovation et impact : <strong>Data Scientist, Data Analyst ou Actuaire</strong>.</p>
             </div>
-          </div>
-          
-          <hr class="border-gray-700 my-10">
-          
-          <div class="grid md:grid-cols-2 gap-8 items-center fade-in">
-            <div>
-              <h3 class="text-2xl font-bold text-pink-400 mb-4">🎧 Mes passions</h3>
-              <div class="space-y-4 text-gray-300">
-                <p>Je pratique le <strong>basket-ball depuis 6 ans</strong> au même club à La Chaussée Saint-Victor. Le sport m'a appris la discipline, l'esprit d'équipe et la détermination.</p>
-                <p>J'adore la <strong>musique</strong>, les découvertes culturelles et surtout le <strong>voyage</strong>. J'ai eu la chance de visiter plusieurs pays : <em>Hongrie, Autriche, Espagne, Maroc, Angleterre, Suisse, Allemagne, Italie, Belgique et Pays-Bas</em>.</p>
+
+            <div class="about-block">
+              <h3>Centres d'intérêt</h3>
+              <p>Basketteur depuis plus de six ans, j'y ai appris la discipline et l'esprit d'équipe. J'aime aussi la musique et le voyage — j'ai eu la chance de découvrir une dizaine de pays.</p>
+              <div class="tag-row">
+                <span class="tag">Basket-ball</span>
+                <span class="tag">Musique</span>
+                <span class="tag">Voyage</span>
               </div>
-            </div>
-            <div class="flex justify-center">
-              <img src="basket.jpg" alt="Iklil jouant au basket" class="rounded-xl shadow-lg max-w-full h-auto" style="max-height: 300px;">
+              <img class="about-photo" src="basket.jpg" alt="Iklil au basket">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projets" class="py-20 bg-gray-900">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-          Mes Projets
-        </h2>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project Card 1 -->
-          <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition fade-in">
-            <div class="text-4xl mb-4 text-purple-400">📈</div>
-            <h3 class="text-xl font-bold mb-3">SAÉ – Échantillonnage & Estimation (R)</h3>
-            <p class="text-gray-400 mb-4">
-              Étude statistique réalisée en deux parties : d'abord, un échantillonnage de la population du Centre-Val de Loire avec comparaison de deux méthodes (aléatoire simple et stratifié), puis analyse d'une enquête étudiante à l'aide de tests du Khi² et du V de Cramer. Visualisations et traitements faits sous R.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">R</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Statistiques</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Analyse de données</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Visualisation</span>
-            </div>
-            <a href="cr_final.pdf" target="_blank" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition">
-              <i data-feather="file-text"></i>
-              Voir le compte rendu
-            </a>
-          </div>
-          
-          <!-- Project Card 2 -->
-          <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition fade-in">
-            <div class="text-4xl mb-4 text-blue-400">🧮</div>
-            <h3 class="text-xl font-bold mb-3">EduScore – Application Excel pour Notes et Moyennes</h3>
-            <p class="text-gray-400 mb-4">
-              Fichier Excel interactif conçu en VBA pour enregistrer ses notes, automatiser le calcul des moyennes pondérées par coefficients, suivre sa progression et générer des graphiques dynamiques. Interface intuitive avec boutons de navigation.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Excel</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">VBA</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Macros</span>
-            </div>
-            <a href="EduScore.xlsm" target="_blank" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition">
-              <i data-feather="download"></i>
-              Télécharger EduScore
-            </a>
-          </div>
-          
-          <!-- Project Card 3 -->
-          <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition fade-in">
-            <div class="text-4xl mb-4 text-indigo-400">📊</div>
-            <h3 class="text-xl font-bold mb-3">Concours DataViz – Parcoursup</h3>
-            <p class="text-gray-400 mb-4">
-              Projet réalisé dans le cadre d’un concours de datavisualisation sur le thème de la scolarisation des 15–29 ans.
+    <!-- ===================== Projets ===================== -->
+    <section id="projets" class="section">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">Réalisations</span>
+          <h2 class="section-title">Mes projets</h2>
+        </div>
 
-Nous avions pour mission de formuler une problématique à partir de données fournies au format Excel, avec la possibilité d’intégrer des jeux de données externes. L’objectif était de concevoir une infographie claire, synthétique et visuellement percutante, sur une seule page.
+        <div class="projects-grid">
 
-Notre infographie met en lumière les disparités entre les hommes et les femmes dans la poursuite d’études supérieures à partir du bac+2, tout en proposant un focus sur la région PACA. À travers l’analyse de plusieurs indicateurs (niveaux de diplômes, attractivité régionale, répartition géographique), nous avons souhaité dresser un portrait contrasté de la scolarisation des jeunes adultes en France.
-
-Les outils utilisés ont été R pour les traitements statistiques et Canva pour la réalisation de l’infographie.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Power BI</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">DataViz</span>
+          <!-- 2e année — Plan d'expériences -->
+          <article class="card reveal">
+            <div class="card-top">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6l-5 9a2 2 0 0 0 1.8 3h12.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7 3h10M8.5 14h7"/></svg></span>
+              <span class="card-year">SAÉ · 2ᵉ année</span>
             </div>
-            <a href="Concours DataViz - Iklil Gabriel Aubin Théo.pdf" target="_blank" class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition">
-              <i data-feather="file-text"></i>
-              Voir le tableau de bord
-            </a>
-          </div>
-          
-          <!-- Project Card 4 -->
-          <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition fade-in">
-            <div class="text-4xl mb-4 text-yellow-400">🧂</div>
-            <h3 class="text-xl font-bold mb-3">SAÉ – Base de données des sauniers de l'île de Ré</h3>
-            <p class="text-gray-400 mb-4">
-              Projet complet mêlant conception de base de données, développement SQL et création d'une interface en Python avec Tkinter. Il s'agissait de répondre aux besoins de gestion d'une coopérative de sel en modélisant les relations entre sauniers, clients, produits et ventes.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Python</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Tkinter</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">SQL</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">EasyPHP</span>
+            <h3>Plans d'expériences — optimisation d'une recette</h3>
+            <p class="card-desc">Application de la méthodologie des plans d'expériences pour déterminer la recette de cookies maximisant la note d'un jury. Plan complet 2² sur la cuisson, puis plan fractionnaire 2⁴⁻¹ sur les ingrédients ; modélisation par moindres carrés et surface de réponse sous R (R² &gt; 0,95).</p>
+            <div class="chips">
+              <span class="chip">R</span>
+              <span class="chip">Plans d'expériences</span>
+              <span class="chip">Modélisation</span>
+              <span class="chip">Statistiques</span>
             </div>
-            <div class="flex flex-col sm:flex-row gap-2">
-              <a href="https://drive.google.com/file/d/1kfnXvYCCKVkGO2ZFpv7qQUZif-LiHVMZ/view?usp=drive_link" target="_blank" class="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition">
-  <i data-feather="video"></i>
-  Démonstration (Google Drive)
-</a>
-              <a href="saé_sujet.pdf" target="_blank" class="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition">
-                <i data-feather="file-text"></i>
-                Voir le sujet
+            <div class="card-links">
+              <a class="card-link" href="rapport.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg>
+                Rapport
+              </a>
+              <a class="card-link" href="code_final.R" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 4-6-4-6M8 6l-4 6 4 6"/></svg>
+                Code R
               </a>
             </div>
-          </div>
-          
-          <!-- Project Card 5 -->
-          <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition fade-in">
-            <div class="text-4xl mb-4 text-red-400">🧠</div>
-            <h3 class="text-xl font-bold mb-3">SAÉ – Analyse AcVC & Tableau de Bord (Python)</h3>
-            <p class="text-gray-400 mb-4">
-              Application interactive développée en Python avec Tkinter pour analyser les accidents de la vie courante (AcVC). Elle permet d'importer un fichier Excel, d'automatiser le nettoyage des données, de produire des statistiques descriptives, et d'afficher un tableau de bord dynamique.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Python</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Tkinter</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Interface graphique</span>
-              <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Nettoyage de données</span>
+          </article>
+
+          <!-- 2e année — Séries temporelles -->
+          <article class="card reveal">
+            <div class="card-top">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m6 14 4-5 3 3 5-7"/></svg></span>
+              <span class="card-year">SAÉ · 2ᵉ année</span>
             </div>
-            <a href="tuto.mp4" target="_blank" class="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition">
-              <i data-feather="video"></i>
-              Voir la démo vidéo
+            <h3>Séries temporelles — prévision du cours de l'uranium</h3>
+            <p class="card-desc">Étude économétrique d'une série de prix (2011–2025) pour prévoir l'évolution sur douze mois. Analyse descriptive, choix d'une tendance quadratique (R² = 0,82) et d'une saisonnalité multiplicative, puis projection mensuelle et recommandation d'achat.</p>
+            <div class="chips">
+              <span class="chip">Séries temporelles</span>
+              <span class="chip">Prévision</span>
+              <span class="chip">Excel</span>
+              <span class="chip">Modélisation</span>
+            </div>
+            <div class="card-links">
+              <a class="card-link" href="SAE_Series_Temporelles_Uranium.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg>
+                Rapport
+              </a>
+            </div>
+          </article>
+
+          <!-- 1re année — Échantillonnage -->
+          <article class="card reveal">
+            <div class="card-top">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 3-4 3 2 4-6"/></svg></span>
+              <span class="card-year">SAÉ · 1ʳᵉ année</span>
+            </div>
+            <h3>Échantillonnage &amp; estimation</h3>
+            <p class="card-desc">Étude statistique en deux temps : échantillonnage de la population du Centre-Val de Loire (aléatoire simple vs stratifié), puis analyse d'une enquête étudiante via tests du Khi² et V de Cramer. Traitements et visualisations sous R.</p>
+            <div class="chips">
+              <span class="chip">R</span>
+              <span class="chip">Statistiques</span>
+              <span class="chip">Analyse de données</span>
+            </div>
+            <div class="card-links">
+              <a class="card-link" href="cr_final.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg>
+                Compte rendu
+              </a>
+            </div>
+          </article>
+
+          <!-- 1re année — EduScore -->
+          <article class="card reveal">
+            <div class="card-top">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+              <span class="card-year">Projet · 1ʳᵉ année</span>
+            </div>
+            <h3>EduScore — suivi de notes sous Excel/VBA</h3>
+            <p class="card-desc">Classeur Excel interactif conçu en VBA : saisie des notes, calcul automatisé des moyennes pondérées, suivi de progression et graphiques dynamiques, avec une interface de navigation par boutons.</p>
+            <div class="chips">
+              <span class="chip">Excel</span>
+              <span class="chip">VBA</span>
+              <span class="chip">Macros</span>
+            </div>
+            <div class="card-links">
+              <a class="card-link" href="EduScore.xlsm" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+                Télécharger
+              </a>
+            </div>
+          </article>
+
+          <!-- 1re année — DataViz -->
+          <article class="card reveal">
+            <div class="card-top">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></span>
+              <span class="card-year">Concours · 1ʳᵉ année</span>
+            </div>
+            <h3>Concours DataViz — Parcoursup</h3>
+            <p class="card-desc">Challenge de datavisualisation. À partir des données officielles Parcoursup 2023–2024, conception d'un tableau de bord interactif mettant en évidence les disparités selon les mentions au bac, les académies et les formations.</p>
+            <div class="chips">
+              <span class="chip">R</span>
+              <span class="chip">DataViz</span>
+            </div>
+            <div class="card-links">
+              <a class="card-link" href="Concours DataViz - Iklil Gabriel Aubin Théo.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg>
+                Tableau de bord
+              </a>
+            </div>
+          </article>
+
+          <!-- 1re année — Sauniers -->
+          <article class="card reveal">
+            <div class="card-top">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>
+              <span class="card-year">SAÉ · 1ʳᵉ année</span>
+            </div>
+            <h3>Base de données des sauniers de l'île de Ré</h3>
+            <p class="card-desc">Projet complet de conception de base de données, développement SQL et interface Python (Tkinter) pour répondre aux besoins de gestion d'une coopérative de sel : modélisation des relations entre sauniers, clients, produits et ventes.</p>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">Tkinter</span>
+              <span class="chip">SQL</span>
+              <span class="chip">EasyPHP</span>
+            </div>
+            <div class="card-links">
+              <a class="card-link" href="https://drive.google.com/file/d/1kfnXvYCCKVkGO2ZFpv7qQUZif-LiHVMZ/view?usp=drive_link" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m10 8 6 4-6 4z"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                Démonstration
+              </a>
+              <a class="card-link" href="saé_sujet.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>
+                Sujet
+              </a>
+            </div>
+          </article>
+
+          <!-- 1re année — AcVC -->
+          <article class="card reveal">
+            <div class="card-top">
+              <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 1 4 4c0 1.5 1 2.2 1.6 3A5 5 0 0 1 12 18a5 5 0 0 1-5.6-8c.6-.8 1.6-1.5 1.6-3a4 4 0 0 1 4-4Z"/><path d="M9 21h6"/></svg></span>
+              <span class="card-year">SAÉ · 1ʳᵉ année</span>
+            </div>
+            <h3>Analyse AcVC &amp; tableau de bord</h3>
+            <p class="card-desc">Application Python (Tkinter) d'analyse des accidents de la vie courante : import d'un fichier Excel, nettoyage automatisé des données, statistiques descriptives et tableau de bord dynamique.</p>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">Tkinter</span>
+              <span class="chip">Interface graphique</span>
+              <span class="chip">Nettoyage de données</span>
+            </div>
+            <div class="card-links">
+              <a class="card-link" href="tuto.mp4" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m10 8 6 4-6 4z"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                Démo vidéo
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Compétences ===================== -->
+    <section id="competences" class="section section--alt">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">Savoir-faire</span>
+          <h2 class="section-title">Mes compétences</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 4-6-4-6M8 6l-4 6 4 6"/></svg>Programmation</h3>
+            <div class="skill"><div class="skill-label"><span>Python</span><span>85%</span></div><div class="bar"><i data-w="85"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>SQL</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>R / R Shiny</span><span>75%</span></div><div class="bar"><i data-w="75"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>SAS</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>VBA</span><span>75%</span></div><div class="bar"><i data-w="75"></i></div></div>
+          </div>
+
+          <div class="skill-card reveal">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m6 14 4-5 3 3 5-7"/></svg>Data &amp; statistiques</h3>
+            <div class="skill"><div class="skill-label"><span>Statistiques</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>Programmation statistique</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>Séries temporelles &amp; prévision</span><span>70%</span></div><div class="bar"><i data-w="70"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>Plans d'expériences</span><span>70%</span></div><div class="bar"><i data-w="70"></i></div></div>
+          </div>
+
+          <div class="skill-card reveal">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.7 5.7l-6 6 2 2 6-6a4 4 0 0 0 5.7-5.7l-2.5 2.5-1.4-1.4z"/></svg>Outils &amp; dataviz</h3>
+            <div class="skill"><div class="skill-label"><span>Excel</span><span>90%</span></div><div class="bar"><i data-w="90"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>Tableau</span><span>75%</span></div><div class="bar"><i data-w="75"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>SAP Business Objects</span><span>70%</span></div><div class="bar"><i data-w="70"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>Power BI</span><span>65%</span></div><div class="bar"><i data-w="65"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>QGIS</span><span>65%</span></div><div class="bar"><i data-w="65"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>Docker</span><span>55%</span></div><div class="bar"><i data-w="55"></i></div></div>
+          </div>
+
+          <div class="skill-card reveal">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19a4 4 0 0 0-8 0"/><circle cx="12" cy="9" r="3.2"/><path d="M5 19a3 3 0 0 1 4-2.8M19 19a3 3 0 0 0-4-2.8"/></svg>Savoir-être</h3>
+            <div class="skill"><div class="skill-label"><span>Travail d'équipe</span><span>90%</span></div><div class="bar"><i data-w="90"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>Autonomie</span><span>85%</span></div><div class="bar"><i data-w="85"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>Communication</span><span>85%</span></div><div class="bar"><i data-w="85"></i></div></div>
+            <div class="skill"><div class="skill-label"><span>Persévérance</span><span>90%</span></div><div class="bar"><i data-w="90"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Bilan ===================== -->
+    <section id="bilan" class="section">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">Réflexion</span>
+          <h2 class="section-title">Bilan par année</h2>
+        </div>
+
+        <div class="reveal">
+          <div class="bilan-controls">
+            <div class="year-tabs" role="tablist" aria-label="Choisir l'année">
+              <button class="year-tab" data-year="1" role="tab">1ʳᵉ année</button>
+              <button class="year-tab is-active" data-year="2" role="tab" aria-selected="true">2ᵉ année</button>
+              <button class="year-tab" data-year="3" role="tab">3ᵉ année</button>
+            </div>
+          </div>
+
+          <div class="bilan-panel">
+            <div class="bilan-body" id="bilan-body"><!-- injecté par JS --></div>
+            <div class="stats" id="bilan-stats"><!-- injecté par JS --></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Contact ===================== -->
+    <section id="contact" class="section section--alt">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">Échangeons</span>
+          <h2 class="section-title">Contact &amp; CV</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="panel reveal">
+            <h3>Coordonnées</h3>
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+              <div><strong>Iklil Peltier</strong><br><span class="label">Étudiant en BUT Science des Données · alternant</span></div>
+            </div>
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <div>Ménars (41), France</div>
+            </div>
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <a href="mailto:iklil.peltier@gmail.com">iklil.peltier@gmail.com</a>
+            </div>
+            <div class="socials">
+              <a href="#" aria-label="LinkedIn" title="LinkedIn (à compléter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4z"/></svg></a>
+              <a href="#" aria-label="GitHub" title="GitHub (à compléter)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+              <a href="mailto:iklil.peltier@gmail.com" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+            </div>
+          </div>
+
+          <div class="panel reveal">
+            <h3>Mon CV</h3>
+            <p class="panel-note">Mon parcours complet, mes compétences détaillées et mes réalisations, au format PDF.</p>
+            <a href="CV Iklil PELTIER (BUT SD) v23012025.pdf" target="_blank" rel="noopener" class="btn btn--primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+              Télécharger le CV
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="competences" class="py-20 bg-gray-800">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-          Mes Compétences
-        </h2>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Programming Skills -->
-          <div class="bg-gray-900 p-6 rounded-xl shadow-lg fade-in">
-            <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-purple-400">
-              <i data-feather="code"></i>
-              Programmation
-            </h3>
-            <div class="space-y-5">
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Python</span>
-                  <span class="text-gray-400">85%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>SQL</span>
-                  <span class="text-gray-400">80%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>VBA</span>
-                  <span class="text-gray-400">75%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-purple-500 h-2 rounded-full" style="width: 75%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>R</span>
-                  <span class="text-gray-400">70%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-purple-500 h-2 rounded-full" style="width: 70%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>SAS</span>
-                  <span class="text-gray-400">80%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Data Science Skills -->
-          <div class="bg-gray-900 p-6 rounded-xl shadow-lg fade-in">
-            <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-blue-400">
-              <i data-feather="bar-chart-2"></i>
-              Data Science
-            </h3>
-            <div class="space-y-5">
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Programmation statistique</span>
-                  <span class="text-gray-400">80%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Statistiques</span>
-                  <span class="text-gray-400">70%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-blue-500 h-2 rounded-full" style="width: 70%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Tools Skills -->
-          <div class="bg-gray-900 p-6 rounded-xl shadow-lg fade-in">
-            <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-green-400">
-              <i data-feather="tool"></i>
-              Outils
-            </h3>
-            <div class="space-y-5">
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Excel</span>
-                  <span class="text-gray-400">90%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-green-500 h-2 rounded-full" style="width: 90%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Power BI</span>
-                  <span class="text-gray-400">65%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-green-500 h-2 rounded-full" style="width: 65%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>PowerPoint</span>
-                  <span class="text-gray-400">85%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>RStudio</span>
-                  <span class="text-gray-400">75%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Soft Skills -->
-          <div class="bg-gray-900 p-6 rounded-xl shadow-lg fade-in">
-            <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-pink-400">
-              <i data-feather="users"></i>
-              Soft Skills
-            </h3>
-            <div class="space-y-5">
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Travail d'équipe</span>
-                  <span class="text-gray-400">90%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-pink-500 h-2 rounded-full" style="width: 90%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Communication</span>
-                  <span class="text-gray-400">85%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-pink-500 h-2 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Persévérance</span>
-                  <span class="text-gray-400">90%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-pink-500 h-2 rounded-full" style="width: 90%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Autonomie</span>
-                  <span class="text-gray-400">80%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div class="bg-pink-500 h-2 rounded-full" style="width: 80%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Year Review Section -->
-    <section id="bilan" class="py-20 bg-gray-900">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-          Bilan de l'Année
-        </h2>
-        
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-6">
-            <label for="select-bilan" class="block mb-2">Choisir l'année :</label>
-            <select id="select-bilan" onchange="changerBilan()" class="bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-2 w-full md:w-auto focus:outline-none focus:ring-2 focus:ring-purple-500">
-              <option value="1">1re année</option>
-              <option value="2">2e année</option>
-              <option value="3">3e année</option>
-            </select>
-          </div>
-          
-          <div id="contenu-bilan" class="bg-gray-800 rounded-xl p-6 shadow-lg fade-in">
-            <!-- Content for Year 1 by default -->
-            <div class="prose prose-invert max-w-none">
-<div class="bilan-text" style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Pourquoi ce BUT ?</h4>
-  <p>
-    Après avoir consulté en détail le programme du BUT Science des Données, j’ai immédiatement senti qu’il correspondait parfaitement à mes intérêts et à mes compétences développées au lycée. Titulaire d’un baccalauréat général avec les spécialités Mathématiques et Numérique & Sciences Informatiques (NSI), j’avais déjà un goût prononcé pour les données, la logique et la programmation. Le BUT me semblait être la suite naturelle.
-  </p>
-
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Les points forts du BUT</h4>
-  <p>
-    Ce qui m’a convaincu, c’est l’équilibre entre théorie et pratique : des TP réguliers, un accompagnement pédagogique proche de celui du lycée — idéal pour ne pas décrocher —, mais aussi la possibilité de travailler en autonomie sur des projets concrets. L’ouverture à l’alternance dès la deuxième année a également pesé dans la balance.
-  </p>
-
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Bilan global</h4>
-  <p>
-    Cette première année a été très positive, aussi bien sur le plan académique que personnel. J’ai fait de belles rencontres et je me suis senti à l’aise avec les contenus proposés. Les matières ne m’ont pas posé de grandes difficultés, mais il fallait tout de même faire preuve de rigueur et d’implication.
-  </p>
-
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Évolution personnelle</h4>
-  <p>
-    J’ai su rester très investi durant le premier semestre, avant de me relâcher un peu au début du second — une baisse d’énergie que j’ai su corriger. Les statistiques et l’outil SAS ont été mes disciplines préférées, tandis que la communication et certains aspects de la programmation du second semestre ont été plus exigeants.
-  </p>
-
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Compétences acquises</h4>
-  <p>
-    Cette année m’a permis de découvrir de nouveaux outils puissants : SAS, R et VBA, entre autres. Parmi eux, SAS a été une révélation. J’ai pris beaucoup de plaisir à l’utiliser et je me suis vite familiarisé avec sa logique.
-  </p>
-
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Autonomie et organisation</h4>
-  <p>
-    Au-delà des langages, j’ai gagné en autonomie et en organisation. Vivre seul dans mon appartement, loin du cadre du lycée, m’a obligé à structurer mes journées, à mieux gérer mon temps et à travailler de manière plus indépendante.
-  </p>
-
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Objectifs atteints</h4>
-  <p>
-    Je n’ai pas rencontré de grandes difficultés dans une matière précise, mais il a tout de même fallu maintenir un bon niveau d’exigence pour atteindre mes objectifs : valider mon année et décrocher une alternance. Ces deux objectifs ont été atteints.
-  </p>
-
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Projets marquants</h4>
-  <p>
-    Je suis particulièrement fier du tableau de bord réalisé pour le concours DataViz, un projet que nous avons porté avec sérieux et motivation. L’application EduConnect, développée lors de la première SAÉ, reste aussi un projet marquant.
-  </p>
-
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Suite du parcours</h4>
-  <p>
-    L’an prochain, je poursuis le BUT en alternance, un contrat déjà signé. Je suis particulièrement attiré par le parcours EMS (Exploration Modélisation Statistique), car il allie analyse statistique approfondie et programmation.
-  </p>
-
-  <h4 style="font-size: 1.4rem; font-weight: bold; margin-top: 2rem;">Objectifs futurs</h4>
-  <p>
-    À plus long terme, j’envisage de poursuivre mes études avec un master. Je n’ai pas encore défini précisément mon orientation future, mais je sais que je souhaite continuer dans le domaine de la science des données, avec une volonté d’apprendre et de progresser constamment.
-  </p>
-</div>
-</div>
-
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-              <div class="bg-gradient-to-r from-purple-700 to-purple-900 p-4 rounded-lg text-center">
-                <span class="text-2xl font-bold block">10+</span>
-                <span>Projets réalisés</span>
-              </div>
-              <div class="bg-gradient-to-r from-blue-700 to-blue-900 p-4 rounded-lg text-center">
-                <span class="text-2xl font-bold block">5</span>
-                <span>Technologies maîtrisées</span>
-              </div>
-              <div class="bg-gradient-to-r from-indigo-700 to-indigo-900 p-4 rounded-lg text-center">
-                <span class="text-2xl font-bold block">100%</span>
-                <span>Motivation</span>
-              </div>
-              <div class="bg-gradient-to-r from-pink-700 to-pink-900 p-4 rounded-lg text-center">
-                <span class="text-2xl font-bold block">2025</span>
-                <span>Prêt pour l'alternance</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & CV Section -->
-    <section id="cv" class="py-20 bg-gray-800">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-          Contact & CV
-        </h2>
-        
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <!-- Contact Card -->
-          <div class="bg-gray-900 rounded-xl p-6 shadow-lg fade-in">
-            <h3 class="text-xl font-bold mb-6 text-purple-400">Mes Coordonnées</h3>
-            
-            <div class="space-y-4">
-              <div class="flex items-start gap-4">
-                <div class="mt-1 text-purple-400">
-                  <i data-feather="user"></i>
-                </div>
-                <div>
-                  <strong>Iklil PELTIER</strong><br>
-                  <span class="text-gray-400">Étudiant en BUT Science des Données</span>
-                </div>
-              </div>
-              
-              <div class="flex items-start gap-4">
-                <div class="mt-1 text-blue-400">
-                  <i data-feather="map-pin"></i>
-                </div>
-                <div>
-                  54 Avenue Guillaume Charron<br>
-                  <span class="text-gray-400">41500 Ménars, France</span>
-                </div>
-              </div>
-              
-              <div class="flex items-center gap-4">
-                <div class="text-green-400">
-                  <i data-feather="phone"></i>
-                </div>
-                <div>06 30 96 23 74</div>
-              </div>
-              
-              <div class="flex items-center gap-4">
-                <div class="text-pink-400">
-                  <i data-feather="mail"></i>
-                </div>
-                <a href="mailto:iklil.peltier@gmail.com" class="hover:text-pink-300 transition">
-                  iklil.peltier@gmail.com
-                </a>
-              </div>
-              
-              <div class="flex items-center gap-4 pt-4">
-                <a href="#" class="text-gray-400 hover:text-white transition">
-                  <i data-feather="linkedin" class="w-5 h-5"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition">
-                  <i data-feather="github" class="w-5 h-5"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition">
-                  <i data-feather="twitter" class="w-5 h-5"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- CV Card -->
-          <div class="bg-gray-900 rounded-xl p-6 shadow-lg fade-in">
-            <h3 class="text-xl font-bold mb-6 text-blue-400">Télécharger mon CV</h3>
-            
-            <p class="text-gray-400 mb-6">
-              Découvrez mon parcours complet, mes compétences détaillées et mes réalisations dans mon CV au format PDF.
-            </p>
-            
-            <a href="CV Iklil PELTIER (BUT SD) v23012025.pdf" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg shadow-lg hover:opacity-90 transition mb-6">
-              <i data-feather="download"></i>
-              <span>Télécharger le CV PDF</span>
-            </a>
-            
-            <div>
-              <h4 class="text-lg font-bold mb-3 text-purple-400">Mes objectifs</h4>
-              <ul class="list-disc list-inside text-gray-300 space-y-2">
-                <li>Intégrer une équipe data dynamique</li>
-                <li>Développer des solutions d'analyse innovantes</li>
-                <li>Contribuer à des projets d'intelligence artificielle</li>
-                <li>Évoluer vers un poste de Data Scientist</li>
-              </ul>
-            </div>
+            <ul class="obj-list">
+              <li>Réussir ma 2ᵉ année et mon alternance chez Malakoff Humanis</li>
+              <li>Poursuivre en 3ᵉ année en alternance</li>
+              <li>Approfondir la modélisation statistique et la dataviz</li>
+              <li>Évoluer vers un poste de Data Scientist / Analyst</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 py-8 border-t border-gray-800">
-    <div class="container mx-auto px-4 text-center">
-      <p>© 2025 Iklil PELTIER - Portfolio développé avec passion <span class="text-purple-400">💜</span></p>
-      <p class="mt-2 text-gray-500">Étudiant en BUT Science des Données • Disponible pour alternance</p>
-      <div class="flex justify-center gap-4 mt-4">
-        <a href="#" class="text-gray-500 hover:text-white transition">
-          <i data-feather="linkedin" class="w-5 h-5"></i>
-        </a>
-        <a href="#" class="text-gray-500 hover:text-white transition">
-          <i data-feather="github" class="w-5 h-5"></i>
-        </a>
-        <a href="#" class="text-gray-500 hover:text-white transition">
-          <i data-feather="mail" class="w-5 h-5"></i>
-        </a>
-      </div>
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Iklil Peltier — Portfolio</p>
+      <p>BUT Science des Données · En alternance chez Malakoff Humanis</p>
     </div>
   </footer>
 
-  <script>
-    feather.replace();
-    
-    function changerBilan() {
-      const select = document.getElementById("select-bilan");
-      const bilan = document.getElementById("contenu-bilan");
-      
-      if (select.value === "1") {
-        bilan.innerHTML = document.getElementById("hidden-bilan-1").innerHTML;
-      } else {
-        bilan.innerHTML = `
-          <div class="prose prose-invert max-w-none">
-            <p>Bilan en attente...</p>
-            <p>Revenez plus tard pour découvrir mon bilan de la ${select.value === "2" ? "2e" : "3e"} année !</p>
-          </div>
-        `;
-      }
-    }
-    
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileMenuButton.addEventListener('click', () => {
-      if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden');
-      } else {
-        mobileMenu.classList.add('hidden');
-      }
-      feather.replace(); // Ensure icons are refreshed
-    });
-    
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Close mobile menu if open
-        mobileMenu.classList.add('hidden');
-        
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-    
-    // Scroll reveal animation
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    fadeElements.forEach(el => {
-      el.style.opacity = 0;
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-  </script>
-  
-  <!-- Hidden content for year switch -->
-  <div id="hidden-bilan-1" class="hidden">
-    <div class="prose prose-invert max-w-none">
-      <p>
-        Après avoir consulté en détail le programme du BUT Science des Données, j'ai immédiatement senti qu'il correspondait parfaitement à mes intérêts et à mes compétences développées au lycée. Titulaire d'un baccalauréat général avec les spécialités Mathématiques et Numérique & Sciences Informatiques (NSI), j'avais déjà un goût prononcé pour les données, la logique et la programmation. Le BUT me semblait être la suite naturelle.
-      </p>
-      <p>
-        Ce qui m'a convaincu, c'est l'équilibre entre théorie et pratique : des TP réguliers, un accompagnement pédagogique proche de celui du lycée — idéal pour ne pas décrocher —, mais aussi la possibilité de travailler en autonomie sur des projets concrets. L'ouverture à l'alternance dès la deuxième année a également pesé dans la balance.
-      </p>
-      <p>
-        Cette première année a été très positive, aussi bien sur le plan académique que personnel. J'ai fait de belles rencontres et je me suis senti à l'aise avec les contenus proposés. Les matières ne m'ont pas posé de grandes difficultés, mais il fallait tout de même faire preuve de rigueur et d'implication.
-      </p>
-      <p>
-        J'ai su rester très investi durant le premier semestre, avant de me relâcher un peu au début du second — une baisse d'énergie que j'ai su corriger. Les statistiques et l'outil SAS ont été mes disciplines préférées, tandis que la communication et certains aspects de la programmation du second semestre ont été plus exigeants.
-      </p>
-      <p>
-        Cette année m'a permis de découvrir de nouveaux outils puissants : SAS, R et VBA, entre autres. Parmi eux, SAS a été une révélation. J'ai pris beaucoup de plaisir à l'utiliser et je me suis vite familiarisé avec sa logique.
-      </p>
-      <p>
-        Au-delà des langages, j'ai gagné en autonomie et en organisation. Vivre seul dans mon appartement, loin du cadre du lycée, m'a obligé à structurer mes journées, à mieux gérer mon temps et à travailler de manière plus indépendante.
-      </p>
-      <p>
-        Je n'ai pas rencontré de grandes difficultés dans une matière précise, mais il a tout de même fallu maintenir un bon niveau d'exigence pour atteindre mes objectifs : valider mon année et décrocher une alternance. Ces deux objectifs ont été atteints.
-      </p>
-      <p>
-        Je suis particulièrement fier du tableau de bord réalisé pour le concours DataViz, un projet que nous avons porté avec sérieux et motivation. L'application EduConnect, développée lors de la première SAÉ, reste aussi un projet marquant.
-      </p>
-      <p>
-        L'an prochain, je poursuis le BUT en alternance, un contrat déjà signé. Je suis particulièrement attiré par le parcours EMS (Exploration Modélisation Statistique), car il allie analyse statistique approfondie et programmation.
-      </p>
-      <p>
-        À plus long terme, j'envisage de poursuivre mes études avec un master. Je n'ai pas encore défini précisément mon orientation future, mais je sais que je souhaite continuer dans le domaine de la science des données, avec une volonté d'apprendre et de progresser constamment.
-      </p>
-    </div>
-            
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-      <div class="bg-gradient-to-r from-purple-700 to-purple-900 p-4 rounded-lg text-center">
-        <span class="text-2xl font-bold block">10+</span>
-        <span>Projets réalisés</span>
-      </div>
-      <div class="bg-gradient-to-r from-blue-700 to-blue-900 p-4 rounded-lg text-center">
-        <span class="text-2xl font-bold block">5</span>
-        <span>Technologies maîtrisées</span>
-      </div>
-      <div class="bg-gradient-to-r from-indigo-700 to-indigo-900 p-4 rounded-lg text-center">
-        <span class="text-2xl font-bold block">100%</span>
-        <span>Motivation</span>
-      </div>
-      <div class="bg-gradient-to-r from-pink-700 to-pink-900 p-4 rounded-lg text-center">
-        <span class="text-2xl font-bold block">2025</span>
-        <span>Prêt pour l'alternance</span>
-      </div>
-    </div>
-  </div>
+  <script src="script.js"></script>
 </body>
 </html>
